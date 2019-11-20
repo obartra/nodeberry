@@ -14,6 +14,8 @@
 
 ## Prerequisites
 
+To understand how to identify notes, we should have a basic understanding of sound processing. You can find a quick intro [here](./sound.md).
+
 [What is needed (knowledge / projects)]
 
 ## References
