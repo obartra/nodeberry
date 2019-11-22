@@ -1,5 +1,7 @@
 # Ball thrower Project
 
+> Pet ball thrower
+
 [![Ball thrower video tutorial](https://img.youtube.com/vi/V9UOcUKazSA/0.jpg)](https://www.youtube.com/watch?v=V9UOcUKazSA)
 
 - Short Description

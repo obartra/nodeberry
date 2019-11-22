@@ -1,5 +1,7 @@
 # Simon Says Project
 
+> Add speech-to-text and text-to-speech to trigger actions
+
 - Short Description
 - difficulty rating
 - Link to tutorial

@@ -1,5 +1,7 @@
 # Ocarina Project
 
+> Recognize notes and trigger actions based on notes played
+
 - Short Description
 - difficulty rating
 - Link to tutorial

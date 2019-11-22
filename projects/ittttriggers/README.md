@@ -1,5 +1,7 @@
 # ITTT Triggers Project
 
+> Activate ITTT triggers from our node server
+
 - Short Description
 - difficulty rating
 - Link to tutorial

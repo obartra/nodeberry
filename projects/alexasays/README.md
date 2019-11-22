@@ -1,5 +1,7 @@
 # Alexa Says Project
 
+> Run alexa on the same raspberry pi
+
 - Short Description
 - difficulty rating
 - Link to tutorial

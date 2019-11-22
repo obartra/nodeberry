@@ -1,5 +1,7 @@
 # What to Wear Project
 
+> Get wheather information and let me know what should I wear / carry
+
 - Short Description
 - difficulty rating
 - Link to tutorial

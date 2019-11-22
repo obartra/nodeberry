@@ -1,5 +1,7 @@
 # Autostart Project
 
+> Run all scripts automatically on restart
+
 - Short Description
 - difficulty rating
 - Link to tutorial

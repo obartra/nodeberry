@@ -1,5 +1,7 @@
 # Water the Plants Project
 
+> Use a small pump to water plants
+
 - Short Description
 - difficulty rating
 - Link to tutorial
