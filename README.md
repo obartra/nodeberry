@@ -17,7 +17,7 @@ Projects are meant to be completed in order since they build on each other and p
 | Project Name                                          | Description                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------------- |
 | [Hello world](projects/helloworld/README.md)          | Getting started with building a raspberry node home server          |
-| [ITTT Triggers](projects/ittttriggers/README.md)      | Activate ITTT triggers from our node server                         |
+| [IFTTT Triggers](projects/ifttttriggers/README.md)    | Activate IFTTT triggers from our node server                        |
 | [Simon says](projects/simonsays/README.md)            | Add speech-to-text and text-to-speech to trigger actions            |
 | [Alexa says](projects/alexasays/README.md)            | Run alexa on the same raspberry pi                                  |
 | [Autostart](projects/autostart/README.md)             | Run all scripts automatically on restart                            |
