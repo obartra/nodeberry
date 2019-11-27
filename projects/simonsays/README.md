@@ -1,23 +1,26 @@
 # Simon Says Project
 
-> Add speech-to-text and text-to-speech to trigger actions
+> Play and record sounds from node
 
-- Short Description
-- difficulty rating
-- Link to tutorial
+[Simon says](./simonsays.md)
 
 ## Goals
 
-[What will be accomplished]
+- Set up recording / playback
+- Play audio files from node
 
 ## Materials
 
-[What is needed (material)]
+- Microphone
+- Speakers
+- Raspberry Pi (optional)
 
 ## Prerequisites
 
-[What is needed (knowledge / projects)]
+- Familiarity with Javascript and node
 
 ## References
 
-[Material to read more about the project]
+If you want to dig deeper into the topics covered in this project or want some reference material, the following links may be useful:
+
+- [Intro to streams](https://stackabuse.com/introduction-to-node-js-streams/)

@@ -1,0 +1,16 @@
+{
+  "name": "recorder-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example of recording and playing audio in node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-record-lpcm16": "^1.0.1",
+    "play-sound": "^1.1.3"
+  }
+}
