@@ -1,5 +1,5 @@
 {
-  "name": "recorder-example",
+  "name": "recording-example",
   "version": "1.0.0",
   "private": true,
   "description": "Example of recording and playing audio in node",

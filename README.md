@@ -19,7 +19,7 @@ Projects are meant to be completed in order since they build on each other and p
 | [Hello world](projects/helloworld/README.md)          | Getting started with building a raspberry node home server          |
 | [IFTTT Triggers](projects/ifttttriggers/README.md)    | Activate IFTTT triggers from our node server                        |
 | [Simon says](projects/simonsays/README.md)            | Play and record sounds from node                                    |
-| [Alexa says](projects/alexasays/README.md)            | Run alexa on the same raspberry pi                                  |
+| [Captain's Log](projects/captainslog/README.md)       | Run text-to-speech conversion when a wake word is detected          |
 | [Autostart](projects/autostart/README.md)             | Run all scripts automatically on restart                            |
 | [What to wear](projects/whattowear/README.md)         | Get wheather information and let me know what should I wear / carry |
 | [Push a button](projects/pushabutton/README.md)       | Use a servo to push a physical button                               |

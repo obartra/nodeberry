@@ -2,7 +2,7 @@
 
 > Activate IFTTT triggers from our node server
 
-[Triggers](./triggers.md)
+[IFTTT Triggers Tutorial](./triggers.md)
 
 ## Goals
 

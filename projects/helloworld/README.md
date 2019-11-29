@@ -2,7 +2,7 @@
 
 > Getting started with a Raspberry Pi and setting it up as a Node Server
 
-[Getting Started here](./gettingStarted.md)
+[Getting Started Tutorial](./gettingStarted.md)
 
 ## Goals
 
