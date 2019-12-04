@@ -25,4 +25,4 @@
 
 If you want to dig deeper into the topics covered in this project or want some reference material, the following links may be useful:
 
-- ??
+- https://github.com/googleapis/nodejs-speech/blob/master/samples/MicrophoneStream.js

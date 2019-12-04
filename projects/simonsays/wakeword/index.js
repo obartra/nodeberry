@@ -1,3 +1,4 @@
+// based on https://github.com/Kitt-AI/snowboy/blob/master/examples/Node/file.js
 const record = require("node-record-lpcm16");
 const { Detector, Models } = require("snowboy");
 const { setActive, MSG } = require("./utils");
