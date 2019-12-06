@@ -2,6 +2,8 @@
 
 This project contains a series of Node-based tutorials to build automation projects. It's based on the [ZeldaHomeAutomation](https://github.com/Sufficiently-Advanced/ZeldaHomeAutomation) project but written entirely in JavaScript and with step-by-step instructions.
 
+The goal is to showcase how to understand speech and generate speech, integrate with IFTTT, and connect to raspberry Pi and espruino devices to spark ideas for automation projects.
+
 You can get a sense for what it will look like once completed based on this video although the projects here aren't exactly the same:
 
 <p align="center">
@@ -25,7 +27,6 @@ Projects are meant to be completed in order since they build on each other and p
 | [Push a button](projects/pushabutton/README.md)       | Use a servo to push a physical button                               |
 | [Water the plants](projects/watertheplants/README.md) | Use a small pump to water plants                                    |
 | [Ocarina](projects/ocarina/README.md)                 | Recognize notes and trigger actions based on notes played           |
-| [Ball thrower](projects/ballthrower/README.md)        | Pet ball thrower                                                    |
 
 ## ⚙️ Material
 

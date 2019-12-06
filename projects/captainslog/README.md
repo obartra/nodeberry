@@ -20,9 +20,12 @@
 ## Prerequisites
 
 - Familiarity with Javascript and node
+- Simon Says project
 
 ## References
 
 If you want to dig deeper into the topics covered in this project or want some reference material, the following links may be useful:
 
-- https://github.com/googleapis/nodejs-speech/blob/master/samples/MicrophoneStream.js
+- [Node Client for Google Cloud API](https://github.com/googleapis/nodejs-speech)
+- [Microphone Stream Example](https://github.com/googleapis/nodejs-speech/blob/master/samples/MicrophoneStream.js)
+- [Getting Started with Google Cloud](https://cloud.google.com/docs/authentication/getting-started)

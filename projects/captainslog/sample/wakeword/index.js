@@ -16,9 +16,9 @@ function wakeWord(onData) {
   const models = new Models();
 
   models.add({
-    file: resolve(__dirname, "jarvis.pmdl"),
+    file: resolve(__dirname, "computer.umdl"),
     sensitivity: "0.5",
-    hotwords: "jarvis"
+    hotwords: "computer"
   });
 
   const detector = new Detector({
