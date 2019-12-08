@@ -1,23 +1,31 @@
 # Push a Button Project
 
-> Use a servo to push a physical button
+> Send and receive actions between Raspberry Pi and an Espruino board
 
-- Short Description
-- difficulty rating
-- Link to tutorial
+[Espruino setup](./espruino.md)
 
 ## Goals
 
-[What will be accomplished]
+- Using an Espruino board
+- Using the Raspberry Pi to set up a Pub/Sub channel
+- Send and recieve messages between the Espruino board and the Raspberry Pi
 
 ## Materials
 
-[What is needed (material)]
+- Raspberry Pi
+- [Espruino Wifi](./espruino.jpg)
+- 5V Charger for the Espruino board
+- [Protoboard](./proto.jpg)
 
 ## Prerequisites
 
-[What is needed (knowledge / projects)]
+- Familiarity with JS
+- Setting up a Raspberry Pi
+-
 
 ## References
 
-[Material to read more about the project]
+If you want to dig deeper into the topics covered in this project or want some reference material, the following links may be useful:
+
+- [Espruino Quick Start](https://www.espruino.com/Quick+Start+USB)
+- [tinyMQTT](https://www.espruino.com/tinyMQTT): Mosquitto Client for Espruino

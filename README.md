@@ -23,8 +23,7 @@ Projects are meant to be completed in order since they build on each other and p
 | [Simon says](projects/simonsays/README.md)            | Play and record sounds from node                                    |
 | [Captain's Log](projects/captainslog/README.md)       | Run text-to-speech conversion when a wake word is detected          |
 | [Autostart](projects/autostart/README.md)             | Run all scripts automatically on restart                            |
-| [What to wear](projects/whattowear/README.md)         | Get wheather information and let me know what should I wear / carry |
-| [Push a button](projects/pushabutton/README.md)       | Use a servo to push a physical button                               |
+| [Push a button](projects/pushabutton/README.md)       | Send and receive actions between Raspberry Pi and an Espruino board |
 | [Water the plants](projects/watertheplants/README.md) | Use a small pump to water plants                                    |
 | [Ocarina](projects/ocarina/README.md)                 | Recognize notes and trigger actions based on notes played           |
 

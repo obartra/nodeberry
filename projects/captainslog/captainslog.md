@@ -110,7 +110,7 @@ In this case, instead of checking for "end transmission" we would convert it to 
 
 When we say the wake word, the program is immediately triggered. This is fine because we only have one command, but, what if we had multiple?
 
-The snowboy program can recognize multiple wake words. Let's modify the program to listen for: "time" and "captain" (hint: download models for these words and add them, the `.on("hotword")` event callback's second parameter contains the hotword triggered).
+The snowboy program can recognize multiple wake words. Let's modify the program to listen for: "time" and "captain". Models for these words are available in the wakeword folder, add them to the app and use the `.on("hotword")` event callback. The second parameter contains the hotword triggered.
 
 Now when we say "computer" it will switch to "listening" mode. If none of these words are heard in the next 5 seconds, revert to "inactive" state (so that the only word that activates is "computer"). For instance, this is the behavior we would implement for these interactions:
 
