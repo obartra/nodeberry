@@ -22,13 +22,13 @@ Now we'll set up a Node server. If you know what you are doing, skip to the next
 - Create an index.js file (`gedit index.js`) and add the boilerplate from the [express hello world tutorial](https://expressjs.com/en/starter/hello-world.html):
 
 ```js
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get("/", (req, res) => res.send("Hello World!"));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 ```
 
 - Let's run our server! (`node index.js`)
@@ -42,7 +42,7 @@ We have our server running!
 
 ![](./ifconfig.png)
 
-We can use this number from another device to access our server, for instance, in the example above we would visit `192.168.1.92:3000` from another computer or phone (they must be connected to the same network). Note that 3000 is the name of the port we set up
+We can use this number from another device to access our server, for instance, in the example above we would visit `192.168.1.92:3000` from another computer or phone (they must be connected to the same network). Note that 3000 is the name of the port we set up.
 
 Keep in mind that IP addresses are usually dynamically assigned. That means that when the computer reboots, we may get a different IP address (so our server would no longer exist at that address). If you want to access the server from the same IP, one option is to assign a static IP. Another one is to set up DHCP reservations in your router. To keep things simple we'll set up a static IP:
 
@@ -61,3 +61,20 @@ Make sure to leave the `/24` at the end. Usually in a home network, the last num
 
 Once changes are saved, reboot the Raspberry Pi and run `ifconfig` again. We should now have the same IP (or whichever one you set on the dhcpcd.conf file). Now, any time our server runs, we'll be able to find at the same exact address (`192.168.1.92:3000`)!
 
+## DNS
+
+When we visit a website, like www.google.com, our computer doesn't know how to connect to it. So, it first makes a request to a DNS server which will translate the address into an IP address. If you want to learn more about how DNS work, [this comicbook](https://howdns.works/ep1/) has a fun intro to it.
+
+Wouldn't it be nice if we had a similar setup for our local network? `avahi-daemon` makes this setup easier. On a terminal, run:
+
+```sh
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install avahi-daemon
+```
+
+And that's it, now we'll be able to access the raspberry pi by its hostname (by default it's `raspberrypi`). With our server running, we can now navigate to `raspberrypi.local:3000`. Much nicer than remembering IP addresses!
+
+You can change the hostname following [these instructions](https://www.cyberciti.biz/faq/ubuntu-change-hostname-command/), but keep in mind [you may need to do some additional debugging](https://superuser.com/a/1194792/416820) to get things to work.
+
+If you still can't access the site, check out [this tutorial](https://www.howtogeek.com/167190/how-and-why-to-assign-the-.local-domain-to-your-raspberry-pi/) for additional tips.
