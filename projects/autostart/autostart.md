@@ -96,3 +96,11 @@ Note that `forever` also can help us save the output of the commands into a file
 ```sh
 forever --append -o out.log -e err.log start
 ```
+
+## Extra credit II
+
+What about tasks that are short lived but we want to schedule periodically? If we have a server running we can keep checking the time at periodic intervals and act when one is met but it's not very efficient and can be tricky to implement correctly. Fortunately, the [cron](https://opensource.com/article/17/11/how-use-cron-linux) utility allows us to do just that.
+
+The syntax can be obscure though, but [this site](https://crontab.guru/) makes it easier to understand how it works.
+
+We can schedule tasks to run on a given schedule using cron directly. If you want to schedule tasks from a node server though, you can use npm's [cron](https://www.npmjs.com/package/cron) package.

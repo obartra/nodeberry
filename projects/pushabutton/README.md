@@ -13,12 +13,12 @@
 ## Materials
 
 - Raspberry Pi
-- [Espruino Wifi](./espruino.jpg)
+- [Espruino Wifi](../../assets/espruino.jpg)
+- [Protoboard](../../assets/proto.jpg)
 - 3.3V Charger for the Espruino board
-- [Protoboard](./proto.jpg)
 - [7 Color Flashing module](https://protosupplies.com/product/7-color-flashing-led-module/)
 - [Button module](https://startingelectronics.org/pinout/push-button/)
-- [Breadboard jumper wires](https://www.amazon.com/gp/product/B07PLZC26F/ref=ppx_yo_dt_b_asin_title_o01_s00)
+- [Breadboard jumper wires](https://www.amazon.com/gp/product/B07PLZC26F)
 
 ## Prerequisites
 
