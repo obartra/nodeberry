@@ -74,6 +74,42 @@ Here we can go as crazy as we want with the frontend. The included app just show
 
 If you have an old phone or tablet, you can [disable autolock](https://itstillworks.com/stop-iphone-sleeping-25832.html) and have it always connected to a power source and showing that page. That will make for a quick dashboard.
 
+## Setting up the water pump
+
+The espruino board we have can only output 5V but the water pump we have is connected to a power outlet (120v). How can we provide enough power to the water pump without frying our board?
+
+Here is where power [relays](https://www.espruino.com/Relays) come in. It's important we are careful when working with power outlets because of the high voltage. It's not only that you can fry your Espruino but that you can injure yourself as well. We'll follow these rules:
+
+- Never work on the device when it's connected
+- All cables carrying dangerous voltage will be covered and secured in an enclousre when connected
+- We'll only use store-bought products to build, assemble and secure the setup
+
+As [the guide we'll follow](http://www.circuitbasics.com/build-an-arduino-controlled-power-outlet/) states:
+
+> WARNING!! – THIS PROJECT INVOLVES WORKING WITH HIGH VOLTAGES THAT CAN CAUSE SERIOUS INJURY, DEATH, AND/OR SET YOUR HOUSE ON FIRE. PLEASE PROCEED WITH CAUTION, AND ALWAYS MAKE SURE CIRCUITS ARE UN-PLUGGED BEFORE WORKING ON THEM.
+
+That guide uses an Arduino One to connect to a lightbulb. We will use the Espruino Wifi and a water pump instead but the instructions for building the relay are the same.
+
+Notice how the only exposed cables are the (5v) ones that connect to the Espruino to turn the device on and off:
+
+![](./setup.jpg)
+
+This schematic provides a more clear layout of where the cables will be connected:
+
+![](./schematics.png)
+
+For the power cord we can use any power cord / power strip and cut the the cable:
+
+![](./cutcable.jpg)
+
+We'll then use the voltage tester to identify the hot wire and ground and mark them. Follow the guide for images and step by step instructions but we'll want the following:
+
+- Connect relay cables for 5v, ground and signal
+- Hot wire (black in image) to the common (C) terminal of the relay
+- Connect a 4 inch piece of the hot wire and strip off about 1/4 inch of the insulation. Insert it into the NO terminal of the relay
+
+![](./connections.jpg)
+
 ## Setting up the Espruino
 
 The Espruino setup will need to connect to the Wifi and same channel than the MQTT server for the Raspberry Pi was setting up, much like we did for the push-a-button project.
@@ -81,7 +117,38 @@ The Espruino setup will need to connect to the Wifi and same channel than the MQ
 To make sure the set up is working, let's first turn on the internal LED1 light when the MQTT call is triggered:
 
 ```js
-// TODO: add Espruino code sample
+const mqtt = require("tinyMQTT").create("[YOUR RASPBERRY PI IP ADDRESS]");
+const wifi = require("Wifi");
+
+const WIFI_NAME = "[YOUR WIFI NAME]";
+const WIFI_OPTIONS = {
+  password: "[YOUR WIFI PASSWORD]"
+};
+
+mqtt.on("connected", () => {
+  LED1.write(0);
+  mqtt.subscribe("actions");
+});
+
+mqtt.on("message", msg => {
+  if (msg === "water") {
+    digitalPulse(LED2, true, 2000); // We'll change this for the signal we'll emit to turn on the water pump
+  }
+});
+
+mqtt.on("disconnected", () => {
+  LED1.write(1);
+  mqtt.connect();
+});
+
+wifi.connect(WIFI_NAME, WIFI_OPTIONS, err => {
+  if (err) {
+    LED1.write(1);
+    console.error("Connection failed", err);
+  } else {
+    mqtt.connect();
+  }
+});
 ```
 
 Once it's wired, let's now change the code to turn on the water pump and water the plants:
@@ -94,4 +161,8 @@ TODO Add image with the completed circuit
 
 ## Extra credit
 
-What if we want to water the plants from outside the house? We want to be really careful any time we expose
+We've seen how to make an HTTP request from our react app to our express server but what if we want to be notified when status change? Maybe we want to know if we lost connection with MQTT, if there's been an error writting to the database or be notified when we start and stop watering the plants.
+
+We could make periodic requests to the backend or implement [long polling](https://www.pubnub.com/blog/http-long-polling/) but HTTP is not really meant for that and these solutions aren't verey efficient. When we want the backend and the frontend to communicate back and forth whenever there are updates, [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) are a better choice. Using the [ws](https://www.npmjs.com/package/ws) package, are you able to set up web sockets to provide updatess to the frontend?
+
+On the frontend, are you able to leverage the [MDN samples](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications) to receive status updates and incorporate them in the React app?

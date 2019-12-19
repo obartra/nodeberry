@@ -7,7 +7,7 @@ const { startServer } = require("./express");
 const {
   EXPRESS_PORT = 3001,
   MQTT_ADDRESS = "http://raspberry.local",
-  MQTT_CHANNEL = "water",
+  MQTT_CHANNEL = "actions",
   MONGO_URL = "mongodb://localhost:27017"
 } = process.env;
 
