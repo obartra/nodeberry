@@ -57,6 +57,8 @@ If they are properly tuned, although they will sound different and have differen
 
 If we want to know if a given instrument was used to play a given note, we'll look at the smaller frequencies as well. In that sense, we can treat the different, smaller frequencies as an instrument "fingerprint".
 
+[Audacity](https://www.audacityteam.org/) has a frequency analyzer that may be useful to help you identify the frequencies that each note you play produces.
+
 ## 🧮 Math
 
 Now that we understand how sound waves work and how different musical notes are produced, we need to figure out _how_ we know which frequencies are being used.
@@ -67,8 +69,10 @@ The [Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform) describ
 
 The math for either of them gets hairy, fortunately as javascript developers, we can solve this problem like any other problem. With `npm install` of course.
 
+Another algorithm that's useful to identify specific frequencies is [Goertzel](https://en.wikipedia.org/wiki/Goertzel_algorithm)'s, which can help us know when a given frequency is active, take a look at the [goertzel-filter](https://www.npmjs.com/package/goertzel-filter) npm package for more information.
+
 ## 📝 Example
 
-We'll use the [web-audio-api](https://github.com/audiojs/web-audio-api). This package implements the native [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) for node.
+We can use the [web-audio-api](https://github.com/audiojs/web-audio-api) in our app. This package implements the native [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) for node.
 
-TODO: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
+If you want to see an example of using it in the browser, MDN has a neat demo [here](https://mdn.github.io/voice-change-o-matic/)

@@ -41,3 +41,4 @@ If you want to dig deeper into the topics covered in this project or want some r
 - [MongoDB setup](https://michelebusta.com/the-little-things-5-initialize-a-local-mongo-db-8972d71b7715)
 - [Create React App](https://github.com/facebook/create-react-app)
 - [Power Relays](https://www.espruino.com/Relays)
+- [Arduino controlled power outlet](http://www.circuitbasics.com/build-an-arduino-controlled-power-outlet/)

@@ -52,25 +52,24 @@ The next step is to set up the actual server. Here we won't use anything new but
 - Permanent / DB storage
 - Voice recognition
 
-You can implement this any way you want but there's a sample server on the `water/server` folder.
-
-The `events.js` file manages events so all other sections can fire events and the top level `index.js` logs them when they occur:
-
-[](./server.png)
+You can implement this any way you want but there's a sample server on the `water/server` folder. This is what it does:
 
 - The `db` folder exports a method to add a log (`insertLog`) and one to retrieve the last 100 (`readLogs`).
 - The `express` folder creates an endpoint `/logs` at port 3001 that returns the results of the previous `readLogs`.
 - The `detector` folder starts the microphone and listens for the `jarvis` keyword. If `jarvis` is set it then listens for the word `water`. This helps prevent accidental activations any time the word water is used unrelated to this command. It also enables sentences like "Hey Jarvis, water the plants".
 - The `mqtt` folder connects to the espruino board and publishes the event to trigger the water pump
 - The top level file (`index.js`), tracks and logs all events and connects the `water` command from the detector to the `mqtt` trigger.
+- The `events.js` file manages events so all other sections can fire events and the top level `index.js` logs them when they occur:
 
-If you now add a `server` script on `package.json`, we would first call `npm run db` in one terminal and `npm run server` in another.
+[](./server.png)
+
+If you now add a `server` script on `package.json`, we would first call `npm run db` in one terminal and `npm run server` in another. If you want to run these scripts on boot, check out the [autostart](../autostart) project.
 
 ## Setting up the client
 
-Install or update [create react app](https://github.com/facebook/create-react-app) with: `npm i -g create-react-app`. We can now create a new client: `create-react-app client`. This will create a `client` folder that we'll be able to call from any device connected to the same wifi network.
+Install or update the [create react app](https://github.com/facebook/create-react-app) package with: `npm i -g create-react-app`. We can now create a new client: `create-react-app client`. This will create a `client` folder that will contain the website we'll be able to call from any device connected to the same wifi network.
 
-Here we can go as crazy as we want with the frontend. The included app just shows the results of the `/logs` query but you can add as many API calls as you want and modify the frontend accordingly. The only thing to keep in mind is that we'll want to set up the [proxy prop](https://create-react-app.dev/docs/proxying-api-requests-in-development/) in the `package.json` to match the URL of the express server. In our example client (`water/client/package.json`) you can see `"proxy": "http://localhost:3001"` so that all endpoints exposed by it will be available directly on the react app. For instance, the `/logs` endpoint also becomes available under `/logs`. Because of this, and to avoid conflicts with potential routes, you may want to prefix all API routes with `/api`.
+Here we can go as crazy as we want. The included app just shows the results of the `/logs` query but you can add more API calls and modify the frontend accordingly. The only thing to keep in mind is that we'll want to set up the [proxy prop](https://create-react-app.dev/docs/proxying-api-requests-in-development/) in the `package.json` to match the URL of the express server. In our example client (`water/client/package.json`) you can see `"proxy": "http://localhost:3001"` so that all endpoints exposed by it will be available directly on the react app. For instance, the `/logs` endpoint also becomes available under `/logs`. Because of this, and to avoid conflicts with potential routes, you may want to prefix all API routes with `/api`.
 
 If you have an old phone or tablet, you can [disable autolock](https://itstillworks.com/stop-iphone-sleeping-25832.html) and have it always connected to a power source and showing that page. That will make for a quick dashboard.
 
@@ -78,17 +77,16 @@ If you have an old phone or tablet, you can [disable autolock](https://itstillwo
 
 The espruino board we have can only output 5V but the water pump we have is connected to a power outlet (120v). How can we provide enough power to the water pump without frying our board?
 
-Here is where power [relays](https://www.espruino.com/Relays) come in. It's important we are careful when working with power outlets because of the high voltage. It's not only that you can fry your Espruino but that you can injure yourself as well. We'll follow these rules:
+Here is where power [relays](https://www.espruino.com/Relays) come in. It's important we are careful when working with power outlets because of the high voltage. It's not only that we can fry your Espruino but that we can injure ourselves as well. We'll follow these rules:
 
 - Never work on the device when it's connected
-- All cables carrying dangerous voltage will be covered and secured in an enclousre when connected
-- We'll only use store-bought products to build, assemble and secure the setup
+- All cables carrying more than 5v will be covered and secured in an enclousre when connected
 
 As [the guide we'll follow](http://www.circuitbasics.com/build-an-arduino-controlled-power-outlet/) states:
 
 > WARNING!! – THIS PROJECT INVOLVES WORKING WITH HIGH VOLTAGES THAT CAN CAUSE SERIOUS INJURY, DEATH, AND/OR SET YOUR HOUSE ON FIRE. PLEASE PROCEED WITH CAUTION, AND ALWAYS MAKE SURE CIRCUITS ARE UN-PLUGGED BEFORE WORKING ON THEM.
 
-That guide uses an Arduino One to connect to a lightbulb. We will use the Espruino Wifi and a water pump instead but the instructions for building the relay are the same.
+That guide uses an Arduino One to connect to a lightbulb. We will use the Espruino Wifi and a water pump instead but the instructions for building the relay are the same (and more detailed there).
 
 Notice how the only exposed cables are the (5v) ones that connect to the Espruino to turn the device on and off:
 
@@ -151,13 +149,7 @@ wifi.connect(WIFI_NAME, WIFI_OPTIONS, err => {
 });
 ```
 
-Once it's wired, let's now change the code to turn on the water pump and water the plants:
-
-```js
-// show the change here
-```
-
-TODO Add image with the completed circuit
+Once it's wired and the LED turns on when we trigger the water command, we can change the code to turn on the water pump instead. Much like we did we the external LED on the push a button project, we can now trigger the water pump using the IO pin that the switch signal is connected to.
 
 ## Extra credit
 
